@@ -1,14 +1,9 @@
-resource "azurerm_app_service_plan" "elastic" {
+resource "azurerm_service_plan" "elastic" {
   name                = "elastic-functions"
   location            = module.merca-resource-group.location
   resource_group_name = module.merca-resource-group.name
-  kind                = "Linux"
-  reserved = true
-
-  sku {
-    tier = "Dynamic"
-    size = "Y1"
-  }
+  os_type             = "Linux"
+  sku_name           = "Y1"
 }
 
 module "merca-function-app" {
@@ -20,5 +15,8 @@ module "merca-function-app" {
   resource_group_name = module.merca-resource-group.name
   tags                = module.taggify.tags
   dotnet_version      = "7.0"
-  app_service_plan_id = azurerm_app_service_plan.elastic.id
+  app_service_plan_id = azurerm_service_plan.elastic.id
+  depends_on = [
+    azurerm_service_plan.elastic
+  ]
 }
