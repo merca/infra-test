@@ -3,7 +3,7 @@ resource "azurerm_service_plan" "elastic" {
   location            = module.merca-resource-group.location
   resource_group_name = module.merca-resource-group.name
   os_type             = "Linux"
-  sku_name           = "Y1"
+  sku_name           = "EP1"
 }
 
 module "merca-function-app" {
