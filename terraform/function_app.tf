@@ -2,7 +2,7 @@ resource "azurerm_app_service_plan" "elastic" {
   name                = "elastic-functions"
   location            = module.merca-resource-group.location
   resource_group_name = module.merca-resource-group.name
-  kind                = "FunctionApp"
+  kind                = "Linux"
 
   sku {
     tier = "Dynamic"
