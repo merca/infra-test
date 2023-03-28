@@ -4,6 +4,7 @@ resource "azurerm_service_plan" "elastic" {
   resource_group_name = module.merca-resource-group.name
   sku_name            = "Y1"
   os_type             = "Linux"
+  reserved            = true
 }
 
 module "merca-function-app" {
