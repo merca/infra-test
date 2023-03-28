@@ -20,7 +20,4 @@ module "merca-function-app" {
   tags                = module.taggify.tags
   dotnet_version      = "7.0"
   app_service_plan_id = azurerm_app_service_plan.elastic.id
-  depends_on = [
-    azurerm_service_plan.elastic
-  ]
 }
