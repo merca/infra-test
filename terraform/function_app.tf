@@ -1,10 +1,13 @@
-resource "azurerm_service_plan" "elastic" {
+resource "azurerm_app_service_plan" "elastic" {
   name                = "elastic-functions"
   location            = module.merca-resource-group.location
   resource_group_name = module.merca-resource-group.name
-  sku_name            = "Y1"
-  os_type             = "Linux"
-  reserved            = true
+  kind                = "FunctionApp"
+
+  sku {
+    tier = "Dynamic"
+    size = "Y1"
+  }
 }
 
 module "merca-function-app" {
