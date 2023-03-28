@@ -19,7 +19,7 @@ module "merca-function-app" {
   resource_group_name = module.merca-resource-group.name
   tags                = module.taggify.tags
   dotnet_version      = "7.0"
-  app_service_plan_id = azurerm_service_plan.elastic.id
+  app_service_plan_id = azurerm_app_service_plan.elastic.id
   depends_on = [
     azurerm_service_plan.elastic
   ]
