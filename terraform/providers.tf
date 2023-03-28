@@ -22,7 +22,7 @@ terraform {
   cloud {
     organization = "private-azure"
     workspaces {
-      name = "infra-test"
+      name = "infra-test-dev"
     }
   }
 }
