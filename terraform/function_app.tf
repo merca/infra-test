@@ -3,6 +3,7 @@ resource "azurerm_app_service_plan" "elastic" {
   location            = module.merca-resource-group.location
   resource_group_name = module.merca-resource-group.name
   kind                = "Linux"
+  reserved = true
 
   sku {
     tier = "Dynamic"
