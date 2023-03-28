@@ -13,6 +13,7 @@ module "merca-function-app" {
   key_vault_id        = module.merca-key-vault.id
   name                = "workshop"
   resource_group_name = module.merca-resource-group.name
+  location = module.merca-resource-group.location
   tags                = module.taggify.tags
   dotnet_version      = "7.0"
   app_service_plan_id = azurerm_service_plan.elastic.id
